@@ -1,0 +1,2 @@
+/usr/bin/ar qc libus_grpc_proto.a CMakeFiles/us_grpc_proto.dir/pkg_config/ggg_user_server.grpc.pb.cc.o CMakeFiles/us_grpc_proto.dir/pkg_config/ggg_user_server.pb.cc.o
+/usr/bin/ranlib libus_grpc_proto.a

@@ -17,6 +17,7 @@ cmake_minimum_required(VERSION 3.8)
 project(GggUserServer C CXX)
 include(../cmake/common.cmake)
 
+set(CMAKE_VERBOSE_MAKEFILE ON)
 set(server_name "ggg_user_server")
 set(pb_inc "../protos_include")
 # Proto file

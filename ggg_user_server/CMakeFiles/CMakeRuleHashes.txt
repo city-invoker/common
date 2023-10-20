@@ -1,2 +1,0 @@
-# Hashes of file build rules.
-dae3c500728a54180ad4a5d5e94476e1 pkg_config/ggg_user_server.pb.cc

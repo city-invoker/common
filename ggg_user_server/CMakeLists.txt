@@ -59,9 +59,9 @@ target_link_libraries(us_grpc_proto
   ${_PROTOBUF_LIBPROTOBUF})
 
 
+add_executable(ggg_user_server)
 aux_source_directory(src source)
 target_sources(ggg_user_server PUBLIC ${source})
-add_executable(ggg_user_server)
 target_link_libraries(ggg_user_server
     us_grpc_proto
     absl::flags

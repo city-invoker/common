@@ -19,7 +19,7 @@
 #ifndef GGG_USRE_SERVICE_IMPL_H_
 #define GGG_USRE_SERVICE_IMPL_H_
 
-#include "../pkg_config/ggg_user_server.grpc.pb.h"
+#include "../../protos_include/ggg_user_server.grpc.pb.h"
 
 
 class GggUserServiceImpl final : public ggg_user::GggUserServer::Service {

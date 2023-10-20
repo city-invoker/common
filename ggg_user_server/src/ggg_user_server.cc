@@ -28,7 +28,7 @@
 #include <grpcpp/grpcpp.h>
 #include <grpcpp/health_check_service_interface.h>
 
-#include "../pkg_config/ggg_user_server.grpc.pb.h"
+#include "../../pkg_config/ggg_user_server.grpc.pb.h"
 #include "ggg_user_service_impl.h"
 
 using grpc::Server;

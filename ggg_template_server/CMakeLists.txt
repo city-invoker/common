@@ -19,24 +19,15 @@ include(../cmake/common.cmake)
 
 set(CMAKE_VERBOSE_MAKEFILE ON)
 set(server_name "ggg_template_server")
-set(pb_pkg "../protos/protos_pkg")
+set(EXECUTABLE_OUTPUT_PATH "${CMAKE_CURRENT_BINARY_DIR}/bin") 
 
-## Include generated *.pb.h files
-#include_directories("${CMAKE_CURRENT_BINARY_DIR}/${pb_pkg}/")
-file(GLOB pb_inc "${pb_pkg}/*.h")
-file(GLOB pb_src "${pb_pkg}/*.cc")
-add_library(grpc_proto STATIC ${pb_inc} ${pb_src})
-target_link_libraries(grpc_proto
-  ${_REFLECTION}
-  ${_GRPC_GRPCPP}
-  ${_PROTOBUF_LIBPROTOBUF})
-
-
+find_library(pb_lib grpc_proto "../protos/lib/")
+include_directories("../protos/protos_pkg/")
 add_executable(${server_name})
 aux_source_directory(src source)
 target_sources(${server_name} PUBLIC ${source})
 target_link_libraries(${server_name}
-    grpc_proto
+    ${pb_lib}
     absl::flags
     absl::flags_parse
     ${_REFLECTION}

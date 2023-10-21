@@ -18,7 +18,7 @@ project(GggUserServer C CXX)
 include(../cmake/common.cmake)
 
 set(CMAKE_VERBOSE_MAKEFILE ON)
-set(server_name "ggg_user_server")
+set(server_name "ggg_template_server")
 set(pb_inc "../protos_include")
 # Proto file
 get_filename_component(proto "../protos/${server_name}.proto" ABSOLUTE)

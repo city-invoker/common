@@ -60,10 +60,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/skylanwei/workspaces/ggg_project/ggg_user_server
+CMAKE_SOURCE_DIR = /home/skylanwei/workspaces/ggg_project/ggg_template_server
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/skylanwei/workspaces/ggg_project/ggg_user_server
+CMAKE_BINARY_DIR = /home/skylanwei/workspaces/ggg_project/ggg_template_server
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -90,9 +90,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/skylanwei/workspaces/ggg_project/ggg_user_server/CMakeFiles /home/skylanwei/workspaces/ggg_project/ggg_user_server//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/skylanwei/workspaces/ggg_project/ggg_template_server/CMakeFiles /home/skylanwei/workspaces/ggg_project/ggg_template_server//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/skylanwei/workspaces/ggg_project/ggg_user_server/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/skylanwei/workspaces/ggg_project/ggg_template_server/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -133,113 +133,113 @@ grpc_proto/fast:
 .PHONY : grpc_proto/fast
 
 #=============================================================================
-# Target rules for targets named ggg_user_server
+# Target rules for targets named ggg_template_server
 
 # Build rule for target.
-ggg_user_server: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ggg_user_server
-.PHONY : ggg_user_server
+ggg_template_server: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ggg_template_server
+.PHONY : ggg_template_server
 
 # fast build rule for target.
-ggg_user_server/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ggg_user_server.dir/build.make CMakeFiles/ggg_user_server.dir/build
-.PHONY : ggg_user_server/fast
+ggg_template_server/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ggg_template_server.dir/build.make CMakeFiles/ggg_template_server.dir/build
+.PHONY : ggg_template_server/fast
 
-home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.grpc.pb.o: home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.grpc.pb.cc.o
-.PHONY : home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.grpc.pb.o
-
-# target to build an object file
-home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.grpc.pb.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/grpc_proto.dir/build.make CMakeFiles/grpc_proto.dir/home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.grpc.pb.cc.o
-.PHONY : home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.grpc.pb.cc.o
-
-home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.grpc.pb.i: home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.grpc.pb.cc.i
-.PHONY : home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.grpc.pb.i
-
-# target to preprocess a source file
-home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.grpc.pb.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/grpc_proto.dir/build.make CMakeFiles/grpc_proto.dir/home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.grpc.pb.cc.i
-.PHONY : home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.grpc.pb.cc.i
-
-home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.grpc.pb.s: home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.grpc.pb.cc.s
-.PHONY : home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.grpc.pb.s
-
-# target to generate assembly for a file
-home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.grpc.pb.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/grpc_proto.dir/build.make CMakeFiles/grpc_proto.dir/home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.grpc.pb.cc.s
-.PHONY : home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.grpc.pb.cc.s
-
-home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.pb.o: home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.pb.cc.o
-.PHONY : home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.pb.o
+home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.grpc.pb.o: home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.grpc.pb.cc.o
+.PHONY : home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.grpc.pb.o
 
 # target to build an object file
-home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.pb.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/grpc_proto.dir/build.make CMakeFiles/grpc_proto.dir/home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.pb.cc.o
-.PHONY : home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.pb.cc.o
+home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.grpc.pb.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/grpc_proto.dir/build.make CMakeFiles/grpc_proto.dir/home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.grpc.pb.cc.o
+.PHONY : home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.grpc.pb.cc.o
 
-home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.pb.i: home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.pb.cc.i
-.PHONY : home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.pb.i
+home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.grpc.pb.i: home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.grpc.pb.cc.i
+.PHONY : home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.grpc.pb.i
 
 # target to preprocess a source file
-home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.pb.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/grpc_proto.dir/build.make CMakeFiles/grpc_proto.dir/home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.pb.cc.i
-.PHONY : home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.pb.cc.i
+home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.grpc.pb.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/grpc_proto.dir/build.make CMakeFiles/grpc_proto.dir/home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.grpc.pb.cc.i
+.PHONY : home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.grpc.pb.cc.i
 
-home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.pb.s: home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.pb.cc.s
-.PHONY : home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.pb.s
+home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.grpc.pb.s: home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.grpc.pb.cc.s
+.PHONY : home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.grpc.pb.s
 
 # target to generate assembly for a file
-home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.pb.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/grpc_proto.dir/build.make CMakeFiles/grpc_proto.dir/home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.pb.cc.s
-.PHONY : home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.pb.cc.s
+home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.grpc.pb.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/grpc_proto.dir/build.make CMakeFiles/grpc_proto.dir/home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.grpc.pb.cc.s
+.PHONY : home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.grpc.pb.cc.s
 
-src/ggg_user_server.o: src/ggg_user_server.cc.o
-.PHONY : src/ggg_user_server.o
+home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.pb.o: home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.pb.cc.o
+.PHONY : home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.pb.o
 
 # target to build an object file
-src/ggg_user_server.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ggg_user_server.dir/build.make CMakeFiles/ggg_user_server.dir/src/ggg_user_server.cc.o
-.PHONY : src/ggg_user_server.cc.o
+home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.pb.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/grpc_proto.dir/build.make CMakeFiles/grpc_proto.dir/home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.pb.cc.o
+.PHONY : home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.pb.cc.o
 
-src/ggg_user_server.i: src/ggg_user_server.cc.i
-.PHONY : src/ggg_user_server.i
+home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.pb.i: home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.pb.cc.i
+.PHONY : home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.pb.i
 
 # target to preprocess a source file
-src/ggg_user_server.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ggg_user_server.dir/build.make CMakeFiles/ggg_user_server.dir/src/ggg_user_server.cc.i
-.PHONY : src/ggg_user_server.cc.i
+home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.pb.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/grpc_proto.dir/build.make CMakeFiles/grpc_proto.dir/home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.pb.cc.i
+.PHONY : home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.pb.cc.i
 
-src/ggg_user_server.s: src/ggg_user_server.cc.s
-.PHONY : src/ggg_user_server.s
+home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.pb.s: home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.pb.cc.s
+.PHONY : home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.pb.s
 
 # target to generate assembly for a file
-src/ggg_user_server.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ggg_user_server.dir/build.make CMakeFiles/ggg_user_server.dir/src/ggg_user_server.cc.s
-.PHONY : src/ggg_user_server.cc.s
+home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.pb.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/grpc_proto.dir/build.make CMakeFiles/grpc_proto.dir/home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.pb.cc.s
+.PHONY : home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.pb.cc.s
 
-src/ggg_user_service_impl.o: src/ggg_user_service_impl.cc.o
-.PHONY : src/ggg_user_service_impl.o
+src/ggg_template_server.o: src/ggg_template_server.cc.o
+.PHONY : src/ggg_template_server.o
 
 # target to build an object file
-src/ggg_user_service_impl.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ggg_user_server.dir/build.make CMakeFiles/ggg_user_server.dir/src/ggg_user_service_impl.cc.o
-.PHONY : src/ggg_user_service_impl.cc.o
+src/ggg_template_server.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ggg_template_server.dir/build.make CMakeFiles/ggg_template_server.dir/src/ggg_template_server.cc.o
+.PHONY : src/ggg_template_server.cc.o
 
-src/ggg_user_service_impl.i: src/ggg_user_service_impl.cc.i
-.PHONY : src/ggg_user_service_impl.i
+src/ggg_template_server.i: src/ggg_template_server.cc.i
+.PHONY : src/ggg_template_server.i
 
 # target to preprocess a source file
-src/ggg_user_service_impl.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ggg_user_server.dir/build.make CMakeFiles/ggg_user_server.dir/src/ggg_user_service_impl.cc.i
-.PHONY : src/ggg_user_service_impl.cc.i
+src/ggg_template_server.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ggg_template_server.dir/build.make CMakeFiles/ggg_template_server.dir/src/ggg_template_server.cc.i
+.PHONY : src/ggg_template_server.cc.i
 
-src/ggg_user_service_impl.s: src/ggg_user_service_impl.cc.s
-.PHONY : src/ggg_user_service_impl.s
+src/ggg_template_server.s: src/ggg_template_server.cc.s
+.PHONY : src/ggg_template_server.s
 
 # target to generate assembly for a file
-src/ggg_user_service_impl.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ggg_user_server.dir/build.make CMakeFiles/ggg_user_server.dir/src/ggg_user_service_impl.cc.s
-.PHONY : src/ggg_user_service_impl.cc.s
+src/ggg_template_server.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ggg_template_server.dir/build.make CMakeFiles/ggg_template_server.dir/src/ggg_template_server.cc.s
+.PHONY : src/ggg_template_server.cc.s
+
+src/ggg_template_service_impl.o: src/ggg_template_service_impl.cc.o
+.PHONY : src/ggg_template_service_impl.o
+
+# target to build an object file
+src/ggg_template_service_impl.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ggg_template_server.dir/build.make CMakeFiles/ggg_template_server.dir/src/ggg_template_service_impl.cc.o
+.PHONY : src/ggg_template_service_impl.cc.o
+
+src/ggg_template_service_impl.i: src/ggg_template_service_impl.cc.i
+.PHONY : src/ggg_template_service_impl.i
+
+# target to preprocess a source file
+src/ggg_template_service_impl.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ggg_template_server.dir/build.make CMakeFiles/ggg_template_server.dir/src/ggg_template_service_impl.cc.i
+.PHONY : src/ggg_template_service_impl.cc.i
+
+src/ggg_template_service_impl.s: src/ggg_template_service_impl.cc.s
+.PHONY : src/ggg_template_service_impl.s
+
+# target to generate assembly for a file
+src/ggg_template_service_impl.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ggg_template_server.dir/build.make CMakeFiles/ggg_template_server.dir/src/ggg_template_service_impl.cc.s
+.PHONY : src/ggg_template_service_impl.cc.s
 
 # Help Target
 help:
@@ -249,20 +249,20 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... ggg_user_server"
+	@echo "... ggg_template_server"
 	@echo "... grpc_proto"
-	@echo "... home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.grpc.pb.o"
-	@echo "... home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.grpc.pb.i"
-	@echo "... home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.grpc.pb.s"
-	@echo "... home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.pb.o"
-	@echo "... home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.pb.i"
-	@echo "... home/skylanwei/workspaces/ggg_project/protos_include/ggg_user_server.pb.s"
-	@echo "... src/ggg_user_server.o"
-	@echo "... src/ggg_user_server.i"
-	@echo "... src/ggg_user_server.s"
-	@echo "... src/ggg_user_service_impl.o"
-	@echo "... src/ggg_user_service_impl.i"
-	@echo "... src/ggg_user_service_impl.s"
+	@echo "... home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.grpc.pb.o"
+	@echo "... home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.grpc.pb.i"
+	@echo "... home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.grpc.pb.s"
+	@echo "... home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.pb.o"
+	@echo "... home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.pb.i"
+	@echo "... home/skylanwei/workspaces/ggg_project/protos_include/ggg_template_server.pb.s"
+	@echo "... src/ggg_template_server.o"
+	@echo "... src/ggg_template_server.i"
+	@echo "... src/ggg_template_server.s"
+	@echo "... src/ggg_template_service_impl.o"
+	@echo "... src/ggg_template_service_impl.i"
+	@echo "... src/ggg_template_service_impl.s"
 .PHONY : help
 
 

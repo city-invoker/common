@@ -15,42 +15,31 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "io.grpc.ggg.user";
-option java_outer_classname = "UserServerProto";
-option objc_class_prefix = "GUSER";
+option java_package = "io.grpc.ggg.template";
+option java_outer_classname = "GggTemplateServer";
+option objc_class_prefix = "GggTemplateServer";
 
-package ggg_user;
+package ggg_template_server;
 
-// The user server's service definition.
-service GggUserServer {
+// The template server's service definition.
+service GggTemplateServer {
 
-  //rpc UserRegister (UserRegisterReq) returns (UserRegisterRsp) {}
-
-  rpc UserLogin (UserLoginReq) returns (UserLoginRsp) {}
-  
-  rpc UserLogOut (UserLogOutReq) returns (UserLogOutRsp) {}
+  rpc TemplateReqService(TemplateReq) returns (TemplateRsp) {}
 
 }
 
-// The request message user login
-message UserLoginReq {
+// The request message
+message TemplateReq {
   string uid = 1;
+  string sid = 2;
 
 }
 
-// The response messages user login
-message UserLoginRsp {
-  string message = 1;
-}
-
-// The request message user login
-message UserLogOutReq {
+// The response messages
+message TemplateRsp {
   string uid = 1;
-}
-
-// The response messages user login
-message UserLogOutRsp {
-  string message = 1;
+  string message = 2;
+  string extra = 3;
 }
 
 

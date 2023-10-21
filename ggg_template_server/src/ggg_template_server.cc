@@ -28,15 +28,15 @@
 #include <grpcpp/grpcpp.h>
 #include <grpcpp/health_check_service_interface.h>
 
-#include "../../protos_include/ggg_user_server.grpc.pb.h"
-#include "ggg_user_service_impl.h"
+#include "../../protos_include/ggg_template_server.grpc.pb.h"
+#include "ggg_template_service_impl.h"
 
 
 ABSL_FLAG(uint16_t, port, 50051, "Server port for the service");
 
 void RunServer(uint16_t port) {
   std::string server_address = absl::StrFormat("0.0.0.0:%d", port);
-  GggUserServiceImpl service;
+  GggTemplateServiceImpl service;
 
   grpc::EnableDefaultHealthCheckService(true);
   grpc::reflection::InitProtoReflectionServerBuilderPlugin();

@@ -16,22 +16,21 @@
  *
  */
 
-#ifndef GGG_USRE_SERVICE_IMPL_H_
-#define GGG_USRE_SERVICE_IMPL_H_
+#ifndef GGG_TEMPLATE_SERVICE_IMPL_H_
+#define GGG_TEMPLATE_SERVICE_IMPL_H_
 
-#include "../../protos_include/ggg_user_server.grpc.pb.h"
+#include "../../protos_include/ggg_template_server.grpc.pb.h"
 
 
-class GggUserServiceImpl final : public ggg_user::GggUserServer::Service {
+class GggTemplateServiceImpl final : public ggg_template_server::GggTemplateServer::Service {
 
   private :
 
   public :
-    grpc::Status UserLogin(grpc::ServerContext* context, const ggg_user::UserLoginReq* request, ggg_user::UserLoginRsp* response) override;
 
-    grpc::Status UserLogOut(grpc::ServerContext* context, const ggg_user::UserLogOutReq* request, ggg_user::UserLogOutRsp* response) override;
+    grpc::Status TemplateReqService(grpc::ServerContext* context, const ggg_template_server::TemplateReq* request, ggg_template_server::TemplateRsp* response) override;
 };
 
 
+#endif // GGG_TEMPLATE_SERVICE_IMPL_H_
 
-#endif //GGG_USRE_SERVICE_IMPL_H_

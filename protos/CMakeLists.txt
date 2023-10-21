@@ -18,7 +18,7 @@ project(protos_pkg C CXX)
 include(../cmake/common.cmake)
 
 set(CMAKE_VERBOSE_MAKEFILE ON)
-set(pb_pkg "protos_pkg")
+set(pb_pkg "${CMAKE_CURRENT_BINARY_DIR}/protos_pkg")
 
 ## Include generated *.pb.h files
 #include_directories("${CMAKE_CURRENT_BINARY_DIR}/${pb_pkg}/")

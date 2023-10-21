@@ -14,42 +14,18 @@
 #
 
 cmake_minimum_required(VERSION 3.8)
-project(GggUserServer C CXX)
+project(GggTemplateServer C CXX)
 include(../cmake/common.cmake)
 
 set(CMAKE_VERBOSE_MAKEFILE ON)
 set(server_name "ggg_template_server")
-set(pb_inc "../protos_include")
-# Proto file
-get_filename_component(proto "../protos/${server_name}.proto" ABSOLUTE)
-get_filename_component(proto_path "${proto}" PATH)
+set(pb_pkg "../protos/protos_pkg")
 
-
-# Generated sources
-
-set(proto_srcs "${CMAKE_CURRENT_BINARY_DIR}/${pb_inc}/${server_name}.pb.cc")
-set(proto_hdrs "${CMAKE_CURRENT_BINARY_DIR}/${pb_inc}/${server_name}.pb.h")
-set(grpc_srcs "${CMAKE_CURRENT_BINARY_DIR}/${pb_inc}/${server_name}.grpc.pb.cc")
-set(grpc_hdrs "${CMAKE_CURRENT_BINARY_DIR}/${pb_inc}/${server_name}.grpc.pb.h")
-add_custom_command(
-      OUTPUT "${proto_srcs}" "${proto_hdrs}" "${grpc_srcs}" "${grpc_hdrs}"
-      COMMAND ${_PROTOBUF_PROTOC}
-      ARGS --grpc_out "${CMAKE_CURRENT_BINARY_DIR}/${pb_inc}/"
-        --cpp_out "${CMAKE_CURRENT_BINARY_DIR}/${pb_inc}/"
-        -I "${proto_path}"
-        --plugin=protoc-gen-grpc="${_GRPC_CPP_PLUGIN_EXECUTABLE}"
-        "${proto}"
-      DEPENDS "${proto}")
-
-# Include generated *.pb.h files
-include_directories("${CMAKE_CURRENT_BINARY_DIR}/${pb_inc}/")
-
-# grpc_proto
-add_library(grpc_proto
-  ${grpc_srcs}
-  ${grpc_hdrs}
-  ${proto_srcs}
-  ${proto_hdrs})
+## Include generated *.pb.h files
+#include_directories("${CMAKE_CURRENT_BINARY_DIR}/${pb_pkg}/")
+file(GLOB pb_inc "${pb_pkg}/*.h")
+file(GLOB pb_src "${pb_pkg}/*.cc")
+add_library(grpc_proto STATIC ${pb_inc} ${pb_src})
 target_link_libraries(grpc_proto
   ${_REFLECTION}
   ${_GRPC_GRPCPP}

@@ -51,41 +51,41 @@ class GggTemplateServer final {
   class StubInterface {
    public:
     virtual ~StubInterface() {}
-    virtual ::grpc::Status TemplateReqService(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq& request, ::ggg_template_server::TemplateRsp* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ggg_template_server::TemplateRsp>> AsyncTemplateReqService(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ggg_template_server::TemplateRsp>>(AsyncTemplateReqServiceRaw(context, request, cq));
+    virtual ::grpc::Status TemplateReqHandler(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq& request, ::ggg_template_server::TemplateRsp* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ggg_template_server::TemplateRsp>> AsyncTemplateReqHandler(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ggg_template_server::TemplateRsp>>(AsyncTemplateReqHandlerRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ggg_template_server::TemplateRsp>> PrepareAsyncTemplateReqService(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ggg_template_server::TemplateRsp>>(PrepareAsyncTemplateReqServiceRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ggg_template_server::TemplateRsp>> PrepareAsyncTemplateReqHandler(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ggg_template_server::TemplateRsp>>(PrepareAsyncTemplateReqHandlerRaw(context, request, cq));
     }
     class async_interface {
      public:
       virtual ~async_interface() {}
-      virtual void TemplateReqService(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq* request, ::ggg_template_server::TemplateRsp* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void TemplateReqService(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq* request, ::ggg_template_server::TemplateRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void TemplateReqHandler(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq* request, ::ggg_template_server::TemplateRsp* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void TemplateReqHandler(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq* request, ::ggg_template_server::TemplateRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
     class async_interface* experimental_async() { return async(); }
    private:
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ggg_template_server::TemplateRsp>* AsyncTemplateReqServiceRaw(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ggg_template_server::TemplateRsp>* PrepareAsyncTemplateReqServiceRaw(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ggg_template_server::TemplateRsp>* AsyncTemplateReqHandlerRaw(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ggg_template_server::TemplateRsp>* PrepareAsyncTemplateReqHandlerRaw(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
-    ::grpc::Status TemplateReqService(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq& request, ::ggg_template_server::TemplateRsp* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ggg_template_server::TemplateRsp>> AsyncTemplateReqService(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ggg_template_server::TemplateRsp>>(AsyncTemplateReqServiceRaw(context, request, cq));
+    ::grpc::Status TemplateReqHandler(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq& request, ::ggg_template_server::TemplateRsp* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ggg_template_server::TemplateRsp>> AsyncTemplateReqHandler(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ggg_template_server::TemplateRsp>>(AsyncTemplateReqHandlerRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ggg_template_server::TemplateRsp>> PrepareAsyncTemplateReqService(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ggg_template_server::TemplateRsp>>(PrepareAsyncTemplateReqServiceRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ggg_template_server::TemplateRsp>> PrepareAsyncTemplateReqHandler(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ggg_template_server::TemplateRsp>>(PrepareAsyncTemplateReqHandlerRaw(context, request, cq));
     }
     class async final :
       public StubInterface::async_interface {
      public:
-      void TemplateReqService(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq* request, ::ggg_template_server::TemplateRsp* response, std::function<void(::grpc::Status)>) override;
-      void TemplateReqService(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq* request, ::ggg_template_server::TemplateRsp* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void TemplateReqHandler(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq* request, ::ggg_template_server::TemplateRsp* response, std::function<void(::grpc::Status)>) override;
+      void TemplateReqHandler(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq* request, ::ggg_template_server::TemplateRsp* response, ::grpc::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -97,9 +97,9 @@ class GggTemplateServer final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class async async_stub_{this};
-    ::grpc::ClientAsyncResponseReader< ::ggg_template_server::TemplateRsp>* AsyncTemplateReqServiceRaw(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::ggg_template_server::TemplateRsp>* PrepareAsyncTemplateReqServiceRaw(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq& request, ::grpc::CompletionQueue* cq) override;
-    const ::grpc::internal::RpcMethod rpcmethod_TemplateReqService_;
+    ::grpc::ClientAsyncResponseReader< ::ggg_template_server::TemplateRsp>* AsyncTemplateReqHandlerRaw(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ggg_template_server::TemplateRsp>* PrepareAsyncTemplateReqHandlerRaw(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq& request, ::grpc::CompletionQueue* cq) override;
+    const ::grpc::internal::RpcMethod rpcmethod_TemplateReqHandler_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -107,147 +107,147 @@ class GggTemplateServer final {
    public:
     Service();
     virtual ~Service();
-    virtual ::grpc::Status TemplateReqService(::grpc::ServerContext* context, const ::ggg_template_server::TemplateReq* request, ::ggg_template_server::TemplateRsp* response);
+    virtual ::grpc::Status TemplateReqHandler(::grpc::ServerContext* context, const ::ggg_template_server::TemplateReq* request, ::ggg_template_server::TemplateRsp* response);
   };
   template <class BaseClass>
-  class WithAsyncMethod_TemplateReqService : public BaseClass {
+  class WithAsyncMethod_TemplateReqHandler : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_TemplateReqService() {
+    WithAsyncMethod_TemplateReqHandler() {
       ::grpc::Service::MarkMethodAsync(0);
     }
-    ~WithAsyncMethod_TemplateReqService() override {
+    ~WithAsyncMethod_TemplateReqHandler() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status TemplateReqService(::grpc::ServerContext* /*context*/, const ::ggg_template_server::TemplateReq* /*request*/, ::ggg_template_server::TemplateRsp* /*response*/) override {
+    ::grpc::Status TemplateReqHandler(::grpc::ServerContext* /*context*/, const ::ggg_template_server::TemplateReq* /*request*/, ::ggg_template_server::TemplateRsp* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestTemplateReqService(::grpc::ServerContext* context, ::ggg_template_server::TemplateReq* request, ::grpc::ServerAsyncResponseWriter< ::ggg_template_server::TemplateRsp>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestTemplateReqHandler(::grpc::ServerContext* context, ::ggg_template_server::TemplateReq* request, ::grpc::ServerAsyncResponseWriter< ::ggg_template_server::TemplateRsp>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_TemplateReqService<Service > AsyncService;
+  typedef WithAsyncMethod_TemplateReqHandler<Service > AsyncService;
   template <class BaseClass>
-  class WithCallbackMethod_TemplateReqService : public BaseClass {
+  class WithCallbackMethod_TemplateReqHandler : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_TemplateReqService() {
+    WithCallbackMethod_TemplateReqHandler() {
       ::grpc::Service::MarkMethodCallback(0,
           new ::grpc::internal::CallbackUnaryHandler< ::ggg_template_server::TemplateReq, ::ggg_template_server::TemplateRsp>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::ggg_template_server::TemplateReq* request, ::ggg_template_server::TemplateRsp* response) { return this->TemplateReqService(context, request, response); }));}
-    void SetMessageAllocatorFor_TemplateReqService(
+                   ::grpc::CallbackServerContext* context, const ::ggg_template_server::TemplateReq* request, ::ggg_template_server::TemplateRsp* response) { return this->TemplateReqHandler(context, request, response); }));}
+    void SetMessageAllocatorFor_TemplateReqHandler(
         ::grpc::MessageAllocator< ::ggg_template_server::TemplateReq, ::ggg_template_server::TemplateRsp>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ggg_template_server::TemplateReq, ::ggg_template_server::TemplateRsp>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~WithCallbackMethod_TemplateReqService() override {
+    ~WithCallbackMethod_TemplateReqHandler() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status TemplateReqService(::grpc::ServerContext* /*context*/, const ::ggg_template_server::TemplateReq* /*request*/, ::ggg_template_server::TemplateRsp* /*response*/) override {
+    ::grpc::Status TemplateReqHandler(::grpc::ServerContext* /*context*/, const ::ggg_template_server::TemplateReq* /*request*/, ::ggg_template_server::TemplateRsp* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* TemplateReqService(
+    virtual ::grpc::ServerUnaryReactor* TemplateReqHandler(
       ::grpc::CallbackServerContext* /*context*/, const ::ggg_template_server::TemplateReq* /*request*/, ::ggg_template_server::TemplateRsp* /*response*/)  { return nullptr; }
   };
-  typedef WithCallbackMethod_TemplateReqService<Service > CallbackService;
+  typedef WithCallbackMethod_TemplateReqHandler<Service > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
-  class WithGenericMethod_TemplateReqService : public BaseClass {
+  class WithGenericMethod_TemplateReqHandler : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_TemplateReqService() {
+    WithGenericMethod_TemplateReqHandler() {
       ::grpc::Service::MarkMethodGeneric(0);
     }
-    ~WithGenericMethod_TemplateReqService() override {
+    ~WithGenericMethod_TemplateReqHandler() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status TemplateReqService(::grpc::ServerContext* /*context*/, const ::ggg_template_server::TemplateReq* /*request*/, ::ggg_template_server::TemplateRsp* /*response*/) override {
+    ::grpc::Status TemplateReqHandler(::grpc::ServerContext* /*context*/, const ::ggg_template_server::TemplateReq* /*request*/, ::ggg_template_server::TemplateRsp* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
   };
   template <class BaseClass>
-  class WithRawMethod_TemplateReqService : public BaseClass {
+  class WithRawMethod_TemplateReqHandler : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_TemplateReqService() {
+    WithRawMethod_TemplateReqHandler() {
       ::grpc::Service::MarkMethodRaw(0);
     }
-    ~WithRawMethod_TemplateReqService() override {
+    ~WithRawMethod_TemplateReqHandler() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status TemplateReqService(::grpc::ServerContext* /*context*/, const ::ggg_template_server::TemplateReq* /*request*/, ::ggg_template_server::TemplateRsp* /*response*/) override {
+    ::grpc::Status TemplateReqHandler(::grpc::ServerContext* /*context*/, const ::ggg_template_server::TemplateReq* /*request*/, ::ggg_template_server::TemplateRsp* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestTemplateReqService(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestTemplateReqHandler(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_TemplateReqService : public BaseClass {
+  class WithRawCallbackMethod_TemplateReqHandler : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_TemplateReqService() {
+    WithRawCallbackMethod_TemplateReqHandler() {
       ::grpc::Service::MarkMethodRawCallback(0,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->TemplateReqService(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->TemplateReqHandler(context, request, response); }));
     }
-    ~WithRawCallbackMethod_TemplateReqService() override {
+    ~WithRawCallbackMethod_TemplateReqHandler() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status TemplateReqService(::grpc::ServerContext* /*context*/, const ::ggg_template_server::TemplateReq* /*request*/, ::ggg_template_server::TemplateRsp* /*response*/) override {
+    ::grpc::Status TemplateReqHandler(::grpc::ServerContext* /*context*/, const ::ggg_template_server::TemplateReq* /*request*/, ::ggg_template_server::TemplateRsp* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* TemplateReqService(
+    virtual ::grpc::ServerUnaryReactor* TemplateReqHandler(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_TemplateReqService : public BaseClass {
+  class WithStreamedUnaryMethod_TemplateReqHandler : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithStreamedUnaryMethod_TemplateReqService() {
+    WithStreamedUnaryMethod_TemplateReqHandler() {
       ::grpc::Service::MarkMethodStreamed(0,
         new ::grpc::internal::StreamedUnaryHandler<
           ::ggg_template_server::TemplateReq, ::ggg_template_server::TemplateRsp>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
                      ::ggg_template_server::TemplateReq, ::ggg_template_server::TemplateRsp>* streamer) {
-                       return this->StreamedTemplateReqService(context,
+                       return this->StreamedTemplateReqHandler(context,
                          streamer);
                   }));
     }
-    ~WithStreamedUnaryMethod_TemplateReqService() override {
+    ~WithStreamedUnaryMethod_TemplateReqHandler() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status TemplateReqService(::grpc::ServerContext* /*context*/, const ::ggg_template_server::TemplateReq* /*request*/, ::ggg_template_server::TemplateRsp* /*response*/) override {
+    ::grpc::Status TemplateReqHandler(::grpc::ServerContext* /*context*/, const ::ggg_template_server::TemplateReq* /*request*/, ::ggg_template_server::TemplateRsp* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedTemplateReqService(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ggg_template_server::TemplateReq,::ggg_template_server::TemplateRsp>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedTemplateReqHandler(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ggg_template_server::TemplateReq,::ggg_template_server::TemplateRsp>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_TemplateReqService<Service > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_TemplateReqHandler<Service > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_TemplateReqService<Service > StreamedService;
+  typedef WithStreamedUnaryMethod_TemplateReqHandler<Service > StreamedService;
 };
 
 }  // namespace ggg_template_server

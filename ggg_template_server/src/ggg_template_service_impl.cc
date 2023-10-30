@@ -17,9 +17,19 @@
  */
 
 #include "ggg_template_service_impl.h"
+#include <grpc/support/log.h>
 
 
-grpc::Status GggTemplateServiceImpl::TemplateReqService(grpc::ServerContext* context, const ggg_template_server::TemplateReq* request, ggg_template_server::TemplateRsp* response) {
+grpc::Status GggTemplateServiceImpl::TemplateReqHandler(grpc::ServerContext* context, const ggg_template_server::TemplateReq* request, ggg_template_server::TemplateRsp* response) {
+
+  gpr_log(GPR_INFO, "TemplateReq service process");
+
+  response->set_uid(request->uid());
+  response->set_message(request->uid() + ":message info, everything is ok!");
+  response->set_extra(request->sid());
+
+  gpr_log(GPR_INFO, "TemplateReq service end");
+
   return grpc::Status::OK;
 }
 

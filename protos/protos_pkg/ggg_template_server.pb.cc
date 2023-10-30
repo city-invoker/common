@@ -118,7 +118,7 @@ const char descriptor_table_protodef_ggg_5ftemplate_5fserver_2eproto[] PROTOBUF_
     "e_server\"\'\n\013TemplateReq\022\013\n\003uid\030\001 \001(\t\022\013\n\003"
     "sid\030\002 \001(\t\":\n\013TemplateRsp\022\013\n\003uid\030\001 \001(\t\022\017\n"
     "\007message\030\002 \001(\t\022\r\n\005extra\030\003 \001(\t2o\n\021GggTemp"
-    "lateServer\022Z\n\022TemplateReqService\022 .ggg_t"
+    "lateServer\022Z\n\022TemplateReqHandler\022 .ggg_t"
     "emplate_server.TemplateReq\032 .ggg_templat"
     "e_server.TemplateRsp\"\000B\?\n\024io.grpc.ggg.te"
     "mplateB\021GggTemplateServerP\001\242\002\021GggTemplat"

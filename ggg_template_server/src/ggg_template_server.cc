@@ -28,7 +28,7 @@
 #include <grpcpp/grpcpp.h>
 #include <grpcpp/health_check_service_interface.h>
 
-#include "../../protos_include/ggg_template_server.grpc.pb.h"
+#include "../../protos/protos_pkg/ggg_template_server.grpc.pb.h"
 #include "ggg_template_service_impl.h"
 
 

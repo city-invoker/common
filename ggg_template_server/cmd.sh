@@ -1,0 +1,2 @@
+grpc_cli call 127.0.0.1:50051 TemplateReqHandler "uid:'9c7f82de-7036-11ee-9a5a-2b9dae32a390' sid:'0D91052B6997F24BCFD31CBB8B2DF45621779C40'"
+

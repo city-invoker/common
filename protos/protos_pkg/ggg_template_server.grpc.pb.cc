@@ -22,7 +22,7 @@
 namespace ggg_template_server {
 
 static const char* GggTemplateServer_method_names[] = {
-  "/ggg_template_server.GggTemplateServer/TemplateReqService",
+  "/ggg_template_server.GggTemplateServer/TemplateReqHandler",
 };
 
 std::unique_ptr< GggTemplateServer::Stub> GggTemplateServer::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -32,28 +32,28 @@ std::unique_ptr< GggTemplateServer::Stub> GggTemplateServer::NewStub(const std::
 }
 
 GggTemplateServer::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
-  : channel_(channel), rpcmethod_TemplateReqService_(GggTemplateServer_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  : channel_(channel), rpcmethod_TemplateReqHandler_(GggTemplateServer_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::Status GggTemplateServer::Stub::TemplateReqService(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq& request, ::ggg_template_server::TemplateRsp* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ggg_template_server::TemplateReq, ::ggg_template_server::TemplateRsp, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_TemplateReqService_, context, request, response);
+::grpc::Status GggTemplateServer::Stub::TemplateReqHandler(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq& request, ::ggg_template_server::TemplateRsp* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::ggg_template_server::TemplateReq, ::ggg_template_server::TemplateRsp, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_TemplateReqHandler_, context, request, response);
 }
 
-void GggTemplateServer::Stub::async::TemplateReqService(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq* request, ::ggg_template_server::TemplateRsp* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ggg_template_server::TemplateReq, ::ggg_template_server::TemplateRsp, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_TemplateReqService_, context, request, response, std::move(f));
+void GggTemplateServer::Stub::async::TemplateReqHandler(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq* request, ::ggg_template_server::TemplateRsp* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ggg_template_server::TemplateReq, ::ggg_template_server::TemplateRsp, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_TemplateReqHandler_, context, request, response, std::move(f));
 }
 
-void GggTemplateServer::Stub::async::TemplateReqService(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq* request, ::ggg_template_server::TemplateRsp* response, ::grpc::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_TemplateReqService_, context, request, response, reactor);
+void GggTemplateServer::Stub::async::TemplateReqHandler(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq* request, ::ggg_template_server::TemplateRsp* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_TemplateReqHandler_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::ggg_template_server::TemplateRsp>* GggTemplateServer::Stub::PrepareAsyncTemplateReqServiceRaw(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ggg_template_server::TemplateRsp, ::ggg_template_server::TemplateReq, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_TemplateReqService_, context, request);
+::grpc::ClientAsyncResponseReader< ::ggg_template_server::TemplateRsp>* GggTemplateServer::Stub::PrepareAsyncTemplateReqHandlerRaw(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ggg_template_server::TemplateRsp, ::ggg_template_server::TemplateReq, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_TemplateReqHandler_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::ggg_template_server::TemplateRsp>* GggTemplateServer::Stub::AsyncTemplateReqServiceRaw(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::ggg_template_server::TemplateRsp>* GggTemplateServer::Stub::AsyncTemplateReqHandlerRaw(::grpc::ClientContext* context, const ::ggg_template_server::TemplateReq& request, ::grpc::CompletionQueue* cq) {
   auto* result =
-    this->PrepareAsyncTemplateReqServiceRaw(context, request, cq);
+    this->PrepareAsyncTemplateReqHandlerRaw(context, request, cq);
   result->StartCall();
   return result;
 }
@@ -67,14 +67,14 @@ GggTemplateServer::Service::Service() {
              ::grpc::ServerContext* ctx,
              const ::ggg_template_server::TemplateReq* req,
              ::ggg_template_server::TemplateRsp* resp) {
-               return service->TemplateReqService(ctx, req, resp);
+               return service->TemplateReqHandler(ctx, req, resp);
              }, this)));
 }
 
 GggTemplateServer::Service::~Service() {
 }
 
-::grpc::Status GggTemplateServer::Service::TemplateReqService(::grpc::ServerContext* context, const ::ggg_template_server::TemplateReq* request, ::ggg_template_server::TemplateRsp* response) {
+::grpc::Status GggTemplateServer::Service::TemplateReqHandler(::grpc::ServerContext* context, const ::ggg_template_server::TemplateReq* request, ::ggg_template_server::TemplateRsp* response) {
   (void) context;
   (void) request;
   (void) response;

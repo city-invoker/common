@@ -19,7 +19,7 @@
 #ifndef GGG_TEMPLATE_SERVICE_IMPL_H_
 #define GGG_TEMPLATE_SERVICE_IMPL_H_
 
-#include "../../protos_include/ggg_template_server.grpc.pb.h"
+#include "../../protos/protos_pkg/ggg_template_server.grpc.pb.h"
 
 
 class GggTemplateServiceImpl final : public ggg_template_server::GggTemplateServer::Service {
@@ -28,7 +28,7 @@ class GggTemplateServiceImpl final : public ggg_template_server::GggTemplateServ
 
   public :
 
-    grpc::Status TemplateReqService(grpc::ServerContext* context, const ggg_template_server::TemplateReq* request, ggg_template_server::TemplateRsp* response) override;
+    grpc::Status TemplateReqHandler(grpc::ServerContext* context, const ggg_template_server::TemplateReq* request, ggg_template_server::TemplateRsp* response) override;
 };
 
 

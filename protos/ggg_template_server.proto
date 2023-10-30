@@ -24,7 +24,7 @@ package ggg_template_server;
 // The template server's service definition.
 service GggTemplateServer {
 
-  rpc TemplateReqService(TemplateReq) returns (TemplateRsp) {}
+  rpc TemplateReqHandler(TemplateReq) returns (TemplateRsp) {}
 
 }
 

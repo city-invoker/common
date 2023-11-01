@@ -28,6 +28,8 @@
 #include <grpcpp/grpcpp.h>
 #include <grpcpp/health_check_service_interface.h>
 
+#include <glog/logging.h>
+
 #include "../../protos/protos_pkg/ggg_template_server.grpc.pb.h"
 #include "ggg_template_service_impl.h"
 
@@ -35,9 +37,10 @@
 ABSL_FLAG(uint16_t, port, 50051, "Server port for the service");
 
 void RunServer(uint16_t port) {
+
+
   std::string server_address = absl::StrFormat("0.0.0.0:%d", port);
   GggTemplateServiceImpl service;
-
   grpc::EnableDefaultHealthCheckService(true);
   grpc::reflection::InitProtoReflectionServerBuilderPlugin();
   grpc::ServerBuilder builder;
@@ -55,7 +58,34 @@ void RunServer(uint16_t port) {
   server->Wait();
 }
 
+void CustomPrefix(std::ostream &s, const google::LogMessageInfo &l, void*) {
+  s << "" 
+    << "[" << std::setw(4) << 1900 + l.time.year() << "-"
+    << std::setw(2) << 1 + l.time.month() << "-"
+    << std::setw(2) << l.time.day() << " "
+    << std::setw(2) << l.time.hour() << ":" 
+    << std::setw(2) << l.time.min()  << ":" 
+    << std::setw(2) << l.time.sec() << "."
+    << std::setw(6) << l.time.usec() << "]"
+    << "[" << std::setfill(' ') << std::setw(5)
+    << l.thread_id << std::setfill('0') << "]"
+    << "[" << l.filename << ':' << l.line_number << "]"
+    << "[" << __func__ << "]"
+    << "[" << l.severity[0] << "]";
+}
+
+void InitLogConfig(int argc, char** argv) {
+  //google::DisableLogCleaner();
+  //google::SetLogDestination();
+  //google::SetBaseName(argv[0]);
+  InitGoogleLogging(argv[0], &CustomPrefix);
+}
+
+
 int main(int argc, char** argv) {
+
+  //google::SetLogDestination();
+  InitGoogleLogging(argv[0], &CustomPrefix);
   absl::ParseCommandLine(argc, argv);
   RunServer(absl::GetFlag(FLAGS_port));
   return 0;

@@ -22,15 +22,17 @@ set(server_name "ggg_template_server")
 set(EXECUTABLE_OUTPUT_PATH "${CMAKE_CURRENT_BINARY_DIR}/bin") 
 
 find_library(pb_lib grpc_proto "../protos/lib/")
-include_directories("../protos/protos_pkg/")
+#link_directories("/usr/local/lib/")
+include_directories("lib")
 add_executable(${server_name})
 aux_source_directory(src source)
 target_sources(${server_name} PUBLIC ${source})
 target_link_libraries(${server_name}
     ${pb_lib}
-    absl::flags
     absl::flags_parse
     ${_REFLECTION}
     ${_GRPC_GRPCPP}
-    ${_PROTOBUF_LIBPROTOBUF})
+    ${_PROTOBUF_LIBPROTOBUF}
+    -lglog
+    )
 

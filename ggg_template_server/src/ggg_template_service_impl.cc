@@ -18,6 +18,7 @@
 
 #include "ggg_template_service_impl.h"
 #include <grpc/support/log.h>
+#include <glog/logging.h>
 
 
 grpc::Status GggTemplateServiceImpl::TemplateReqHandler(grpc::ServerContext* context, const ggg_template_server::TemplateReq* request, ggg_template_server::TemplateRsp* response) {
@@ -29,6 +30,7 @@ grpc::Status GggTemplateServiceImpl::TemplateReqHandler(grpc::ServerContext* con
   response->set_extra(request->sid());
 
   gpr_log(GPR_INFO, "TemplateReq service end");
+  LOG(INFO) << "test glog funtion, uid:" << request->uid();
 
   return grpc::Status::OK;
 }

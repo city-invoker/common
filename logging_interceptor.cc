@@ -27,9 +27,11 @@ void LoggingInterceptor::Intercept(InterceptorBatchMethods* methods) {
   if (methods->QueryInterceptionHookPoint(InterceptionHookPoints::POST_RECV_INITIAL_METADATA)) {
     auto* metadata = methods->GetRecvInitialMetadata();
     if (metadata->find("req_id") == metadata->end()) {
-      uuid_t uuid;
-      uuid_generate(uuid);
-      auto kv = std::make_pair(grpc::string_ref("req_id"), grpc::string_ref((const char*)uuid));
+      uuid_t out;
+      uuid_generate(out);
+      char uuid[36];
+      uuid_unparse(out, uuid);
+      auto kv = std::make_pair(grpc::string_ref("req_id"), grpc::string_ref(uuid));
       metadata->insert(kv);
     }
   }

@@ -16,8 +16,10 @@
  *
  */
 
+#ifndef GGG_PROJECT_COMMON_LOGGING_INTERCEPTOR_H
+#define GGG_PROJECT_COMMON_LOGGING_INTERCEPTOR_H
+
 #include <grpcpp/grpcpp.h>
-//#include <grpcpp/support/server_interceptor.h>
 
 
 using grpc::experimental::Interceptor;
@@ -39,3 +41,4 @@ class LoggingInterceptorFactory : public ServerInterceptorFactoryInterface {
   }
 };
 
+#endif // GGG_PROJECT_COMMON_LOGGING_INTERCEPTOR_H

@@ -16,15 +16,22 @@
  *
  */
 
-#include "LoggingInterceptor.h"
+#include "logging_interceptor.h"
 
+#include <uuid/uuid.h>
+#include <glog/logging.h>
 
 using grpc::experimental::InterceptionHookPoints;
 
 void LoggingInterceptor::Intercept(InterceptorBatchMethods* methods) {
-  if (methods->QueryInterceptionHookPoint(InterceptionHookPoints::POST_RECV_MESSAGE)) {
-      //TODO GLOG info
-      //TODO add request_id in metadata if there isn't any
+  if (methods->QueryInterceptionHookPoint(InterceptionHookPoints::POST_RECV_INITIAL_METADATA)) {
+    auto* metadata = methods->GetRecvInitialMetadata();
+    if (metadata->find("req_id") == metadata->end()) {
+      uuid_t uuid;
+      uuid_generate(uuid);
+      auto kv = std::make_pair(grpc::string_ref("req_id"), grpc::string_ref((const char*)uuid));
+      metadata->insert(kv);
+    }
   }
   methods->Proceed();
 }

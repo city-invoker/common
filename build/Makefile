@@ -132,29 +132,29 @@ ggg_common/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ggg_common.dir/build.make CMakeFiles/ggg_common.dir/build
 .PHONY : ggg_common/fast
 
-LoggingInterceptor.o: LoggingInterceptor.cc.o
-.PHONY : LoggingInterceptor.o
+logging_interceptor.o: logging_interceptor.cc.o
+.PHONY : logging_interceptor.o
 
 # target to build an object file
-LoggingInterceptor.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ggg_common.dir/build.make CMakeFiles/ggg_common.dir/LoggingInterceptor.cc.o
-.PHONY : LoggingInterceptor.cc.o
+logging_interceptor.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ggg_common.dir/build.make CMakeFiles/ggg_common.dir/logging_interceptor.cc.o
+.PHONY : logging_interceptor.cc.o
 
-LoggingInterceptor.i: LoggingInterceptor.cc.i
-.PHONY : LoggingInterceptor.i
+logging_interceptor.i: logging_interceptor.cc.i
+.PHONY : logging_interceptor.i
 
 # target to preprocess a source file
-LoggingInterceptor.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ggg_common.dir/build.make CMakeFiles/ggg_common.dir/LoggingInterceptor.cc.i
-.PHONY : LoggingInterceptor.cc.i
+logging_interceptor.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ggg_common.dir/build.make CMakeFiles/ggg_common.dir/logging_interceptor.cc.i
+.PHONY : logging_interceptor.cc.i
 
-LoggingInterceptor.s: LoggingInterceptor.cc.s
-.PHONY : LoggingInterceptor.s
+logging_interceptor.s: logging_interceptor.cc.s
+.PHONY : logging_interceptor.s
 
 # target to generate assembly for a file
-LoggingInterceptor.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ggg_common.dir/build.make CMakeFiles/ggg_common.dir/LoggingInterceptor.cc.s
-.PHONY : LoggingInterceptor.cc.s
+logging_interceptor.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ggg_common.dir/build.make CMakeFiles/ggg_common.dir/logging_interceptor.cc.s
+.PHONY : logging_interceptor.cc.s
 
 # Help Target
 help:
@@ -165,9 +165,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... ggg_common"
-	@echo "... LoggingInterceptor.o"
-	@echo "... LoggingInterceptor.i"
-	@echo "... LoggingInterceptor.s"
+	@echo "... logging_interceptor.o"
+	@echo "... logging_interceptor.i"
+	@echo "... logging_interceptor.s"
 .PHONY : help
 
 

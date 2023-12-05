@@ -1,26 +1,27 @@
 # Copyright 2023-11-02 skylanwei 
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-#
 
-cmake_minimum_required(VERSION 3.8)
-project(libggg_common.a C CXX)
+
+cmake_minimum_required(VERSION 3.14)
+project(libtrpc_server_tpl_common.a C CXX)
 
 set(CMAKE_VERBOSE_MAKEFILE ON)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_BUILD_TYPE DEBUG)
+
+# include *.h
+set(TRPC_INSTALL_PATH /usr/local/trpc-cpp/trpc)
+include(${TRPC_INSTALL_PATH}/cmake/config/trpc_config.cmake)
+include_directories(${INCLUDE_INSTALL_PATHS})
+
+# lib directories
+link_directories(${LIBRARY_INSTALL_PATHS})
+link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/")
 
 # Include generated files
+set(TARGET trpc_server_tpl_common)
 set(LIBRARY_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/lib")
-include_directories("/usr/local/grpc/include/")
-aux_source_directory("." src)
-add_library(ggg_common STATIC "${src}")
+
+aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" SRC)
+add_library(${TARGET} STATIC "${SRC}")
+target_link_libraries(${TARGET})
 

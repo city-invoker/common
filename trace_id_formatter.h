@@ -1,3 +1,6 @@
+// copyright skylanwei 2023-11-18
+
+#pragma once
 
 #include "spdlog/pattern_formatter.h"
 

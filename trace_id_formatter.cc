@@ -3,6 +3,8 @@
 #include <spdlog/details/fmt_helper.h>
 
 #include "trpc/server/server_context.h"
+#include "trpc/filter/server_filter_base.h"
+#include "trpc/filter/filter_point.h"
 
 namespace trpc {
 namespace sample {
@@ -12,7 +14,11 @@ void TraceIdFormatter::format(const spdlog::details::log_msg &, const std::tm &,
 
   auto context = ::trpc::GetLocalServerContext();
   if (context != nullptr) {
-    spdlog::details::fmt_helper::append_int(context->GetRequestId(), dest);
+    uint32_t filter_id = static_cast<uint32_t>(::trpc::FilterPoint::SERVER_POST_RECV_MSG);
+    std::string* uuid = context->GetFilterData<std::string>(filter_id);
+    if (!uuid->empty()) {
+      spdlog::details::fmt_helper::append_string_view(*uuid, dest);
+    }
   }
 }
 

@@ -132,6 +132,30 @@ trpc_server_tpl_common/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/trpc_server_tpl_common.dir/build.make CMakeFiles/trpc_server_tpl_common.dir/build
 .PHONY : trpc_server_tpl_common/fast
 
+server_post_recv_msg_filter.o: server_post_recv_msg_filter.cc.o
+.PHONY : server_post_recv_msg_filter.o
+
+# target to build an object file
+server_post_recv_msg_filter.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trpc_server_tpl_common.dir/build.make CMakeFiles/trpc_server_tpl_common.dir/server_post_recv_msg_filter.cc.o
+.PHONY : server_post_recv_msg_filter.cc.o
+
+server_post_recv_msg_filter.i: server_post_recv_msg_filter.cc.i
+.PHONY : server_post_recv_msg_filter.i
+
+# target to preprocess a source file
+server_post_recv_msg_filter.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trpc_server_tpl_common.dir/build.make CMakeFiles/trpc_server_tpl_common.dir/server_post_recv_msg_filter.cc.i
+.PHONY : server_post_recv_msg_filter.cc.i
+
+server_post_recv_msg_filter.s: server_post_recv_msg_filter.cc.s
+.PHONY : server_post_recv_msg_filter.s
+
+# target to generate assembly for a file
+server_post_recv_msg_filter.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trpc_server_tpl_common.dir/build.make CMakeFiles/trpc_server_tpl_common.dir/server_post_recv_msg_filter.cc.s
+.PHONY : server_post_recv_msg_filter.cc.s
+
 trace_id_formatter.o: trace_id_formatter.cc.o
 .PHONY : trace_id_formatter.o
 
@@ -165,6 +189,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... trpc_server_tpl_common"
+	@echo "... server_post_recv_msg_filter.o"
+	@echo "... server_post_recv_msg_filter.i"
+	@echo "... server_post_recv_msg_filter.s"
 	@echo "... trace_id_formatter.o"
 	@echo "... trace_id_formatter.i"
 	@echo "... trace_id_formatter.s"

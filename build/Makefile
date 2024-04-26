@@ -132,6 +132,30 @@ trpc_server_tpl_common/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/trpc_server_tpl_common.dir/build.make CMakeFiles/trpc_server_tpl_common.dir/build
 .PHONY : trpc_server_tpl_common/fast
 
+ecc_sign.o: ecc_sign.cc.o
+.PHONY : ecc_sign.o
+
+# target to build an object file
+ecc_sign.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trpc_server_tpl_common.dir/build.make CMakeFiles/trpc_server_tpl_common.dir/ecc_sign.cc.o
+.PHONY : ecc_sign.cc.o
+
+ecc_sign.i: ecc_sign.cc.i
+.PHONY : ecc_sign.i
+
+# target to preprocess a source file
+ecc_sign.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trpc_server_tpl_common.dir/build.make CMakeFiles/trpc_server_tpl_common.dir/ecc_sign.cc.i
+.PHONY : ecc_sign.cc.i
+
+ecc_sign.s: ecc_sign.cc.s
+.PHONY : ecc_sign.s
+
+# target to generate assembly for a file
+ecc_sign.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trpc_server_tpl_common.dir/build.make CMakeFiles/trpc_server_tpl_common.dir/ecc_sign.cc.s
+.PHONY : ecc_sign.cc.s
+
 server_post_recv_msg_filter.o: server_post_recv_msg_filter.cc.o
 .PHONY : server_post_recv_msg_filter.o
 
@@ -189,6 +213,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... trpc_server_tpl_common"
+	@echo "... ecc_sign.o"
+	@echo "... ecc_sign.i"
+	@echo "... ecc_sign.s"
 	@echo "... server_post_recv_msg_filter.o"
 	@echo "... server_post_recv_msg_filter.i"
 	@echo "... server_post_recv_msg_filter.s"

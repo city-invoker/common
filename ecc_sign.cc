@@ -30,16 +30,16 @@ void EccSign::Init() {
 
 void EccSign::LoadPrivateKey(const std::string& private_key_pem) {
 
-    BIO* bio = BIO_new_mem_buf(private_key_pem.data(), private_key_pem.size());
-    EVP_PKEY* private_key = PEM_read_bio_PrivateKey(bio, nullptr, nullptr, nullptr);
-    BIO_free(bio);
-    return;
+  BIO* bio = BIO_new_mem_buf(private_key_pem.data(), private_key_pem.size());
+  private_key = PEM_read_bio_PrivateKey(bio, nullptr, nullptr, nullptr);
+  BIO_free(bio);
+  return;
 }
 
 void EccSign::LoadPublicKey(const std::string& public_key_pem) {
 
   BIO* bio = BIO_new_mem_buf(public_key_pem.data(), public_key_pem.size());
-  EVP_PKEY* public_key = PEM_read_bio_PUBKEY(bio, nullptr, nullptr, nullptr);
+  public_key = PEM_read_bio_PUBKEY(bio, nullptr, nullptr, nullptr);
   BIO_free(bio);
 
   return;

@@ -2,6 +2,7 @@
 *.swp
 *.swo
 *.o
+lib
 CMakeCache.txt
 CMakeFiles/
 cmake_install.cmake

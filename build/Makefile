@@ -132,6 +132,30 @@ trpc_server_tpl_common/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/trpc_server_tpl_common.dir/build.make CMakeFiles/trpc_server_tpl_common.dir/build
 .PHONY : trpc_server_tpl_common/fast
 
+aes.o: aes.cpp.o
+.PHONY : aes.o
+
+# target to build an object file
+aes.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trpc_server_tpl_common.dir/build.make CMakeFiles/trpc_server_tpl_common.dir/aes.cpp.o
+.PHONY : aes.cpp.o
+
+aes.i: aes.cpp.i
+.PHONY : aes.i
+
+# target to preprocess a source file
+aes.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trpc_server_tpl_common.dir/build.make CMakeFiles/trpc_server_tpl_common.dir/aes.cpp.i
+.PHONY : aes.cpp.i
+
+aes.s: aes.cpp.s
+.PHONY : aes.s
+
+# target to generate assembly for a file
+aes.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trpc_server_tpl_common.dir/build.make CMakeFiles/trpc_server_tpl_common.dir/aes.cpp.s
+.PHONY : aes.cpp.s
+
 ecc_sign.o: ecc_sign.cc.o
 .PHONY : ecc_sign.o
 
@@ -213,6 +237,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... trpc_server_tpl_common"
+	@echo "... aes.o"
+	@echo "... aes.i"
+	@echo "... aes.s"
 	@echo "... ecc_sign.o"
 	@echo "... ecc_sign.i"
 	@echo "... ecc_sign.s"

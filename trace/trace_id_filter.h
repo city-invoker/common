@@ -11,11 +11,15 @@ namespace app {
 class TraceIdFilter : public ::trpc::MessageServerFilter {
 
 public:
-    std::string Name() override { return "server_post_recv_msg_filter"; }
+    std::string Name() override { return "trace_id_filter"; }
 
     std::vector<::trpc::FilterPoint> GetFilterPoint() override {
-      std::vector<::trpc::FilterPoint> points = {::trpc::FilterPoint::SERVER_POST_RECV_MSG,
-                                                 ::trpc::FilterPoint::SERVER_PRE_SEND_MSG};
+      std::vector<::trpc::FilterPoint> points = {
+                      ::trpc::FilterPoint::CLIENT_PRE_SEND_MSG,
+                      ::trpc::FilterPoint::CLIENT_POST_RECV_MSG,
+                      ::trpc::FilterPoint::SERVER_POST_RECV_MSG,
+                      ::trpc::FilterPoint::SERVER_PRE_SEND_MSG,
+                      };
       return points;
     }
 

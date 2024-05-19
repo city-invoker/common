@@ -15,9 +15,9 @@ void TraceIdFormatter::format(const spdlog::details::log_msg &, const std::tm &,
   auto context = ::trpc::GetLocalServerContext();
   if (context != nullptr) {
     uint32_t filter_id = static_cast<uint32_t>(FilterId::TRACE_ID_FILTER);
-    std::string* uuid = context->GetFilterData<std::string>(filter_id);
-    if (!uuid->empty()) {
-      spdlog::details::fmt_helper::append_string_view(*uuid, dest);
+    auto uuid_ptr = context->GetFilterData<std::string>(filter_id);
+    if (uuid_ptr != nullptr) {
+      spdlog::details::fmt_helper::append_string_view(*uuid_ptr, dest);
     }
   }
 }

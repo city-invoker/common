@@ -1,6 +1,5 @@
 # Copyright 2023-11-02 skylanwei 
 
-
 cmake_minimum_required(VERSION 3.14)
 project(libtrpc_server_tpl_common.a C CXX)
 
@@ -12,6 +11,7 @@ set(CMAKE_BUILD_TYPE DEBUG)
 set(TRPC_INSTALL_PATH /usr/local/trpc-cpp/trpc)
 include(${TRPC_INSTALL_PATH}/cmake/config/trpc_config.cmake)
 include_directories(${INCLUDE_INSTALL_PATHS})
+include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
 # lib directories
 link_directories(${LIBRARY_INSTALL_PATHS})
@@ -21,7 +21,10 @@ link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/")
 set(TARGET trpc_server_tpl_common)
 set(LIBRARY_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/lib")
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" SRC)
-add_library(${TARGET} STATIC "${SRC}")
-target_link_libraries(${TARGET})
+file(GLOB_RECURSE SRC_FILES ${CMAKE_CURRENT_SOURCE_DIR}/trace/*.cc
+                            ${CMAKE_CURRENT_SOURCE_DIR}/security/*.cc
+                            ${CMAKE_CURRENT_SOURCE_DIR}/util/*.cc
+                            )
 
+add_library(${TARGET} STATIC "${SRC_FILES}")
+target_link_libraries(${TARGET})

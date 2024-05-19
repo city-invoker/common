@@ -132,101 +132,77 @@ trpc_server_tpl_common/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/trpc_server_tpl_common.dir/build.make CMakeFiles/trpc_server_tpl_common.dir/build
 .PHONY : trpc_server_tpl_common/fast
 
-aes.o: aes.cpp.o
-.PHONY : aes.o
+security/ecc_sign.o: security/ecc_sign.cc.o
+.PHONY : security/ecc_sign.o
 
 # target to build an object file
-aes.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/trpc_server_tpl_common.dir/build.make CMakeFiles/trpc_server_tpl_common.dir/aes.cpp.o
-.PHONY : aes.cpp.o
+security/ecc_sign.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trpc_server_tpl_common.dir/build.make CMakeFiles/trpc_server_tpl_common.dir/security/ecc_sign.cc.o
+.PHONY : security/ecc_sign.cc.o
 
-aes.i: aes.cpp.i
-.PHONY : aes.i
+security/ecc_sign.i: security/ecc_sign.cc.i
+.PHONY : security/ecc_sign.i
 
 # target to preprocess a source file
-aes.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/trpc_server_tpl_common.dir/build.make CMakeFiles/trpc_server_tpl_common.dir/aes.cpp.i
-.PHONY : aes.cpp.i
+security/ecc_sign.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trpc_server_tpl_common.dir/build.make CMakeFiles/trpc_server_tpl_common.dir/security/ecc_sign.cc.i
+.PHONY : security/ecc_sign.cc.i
 
-aes.s: aes.cpp.s
-.PHONY : aes.s
+security/ecc_sign.s: security/ecc_sign.cc.s
+.PHONY : security/ecc_sign.s
 
 # target to generate assembly for a file
-aes.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/trpc_server_tpl_common.dir/build.make CMakeFiles/trpc_server_tpl_common.dir/aes.cpp.s
-.PHONY : aes.cpp.s
+security/ecc_sign.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trpc_server_tpl_common.dir/build.make CMakeFiles/trpc_server_tpl_common.dir/security/ecc_sign.cc.s
+.PHONY : security/ecc_sign.cc.s
 
-ecc_sign.o: ecc_sign.cc.o
-.PHONY : ecc_sign.o
+trace/trace_id_filter.o: trace/trace_id_filter.cc.o
+.PHONY : trace/trace_id_filter.o
 
 # target to build an object file
-ecc_sign.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/trpc_server_tpl_common.dir/build.make CMakeFiles/trpc_server_tpl_common.dir/ecc_sign.cc.o
-.PHONY : ecc_sign.cc.o
+trace/trace_id_filter.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trpc_server_tpl_common.dir/build.make CMakeFiles/trpc_server_tpl_common.dir/trace/trace_id_filter.cc.o
+.PHONY : trace/trace_id_filter.cc.o
 
-ecc_sign.i: ecc_sign.cc.i
-.PHONY : ecc_sign.i
+trace/trace_id_filter.i: trace/trace_id_filter.cc.i
+.PHONY : trace/trace_id_filter.i
 
 # target to preprocess a source file
-ecc_sign.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/trpc_server_tpl_common.dir/build.make CMakeFiles/trpc_server_tpl_common.dir/ecc_sign.cc.i
-.PHONY : ecc_sign.cc.i
+trace/trace_id_filter.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trpc_server_tpl_common.dir/build.make CMakeFiles/trpc_server_tpl_common.dir/trace/trace_id_filter.cc.i
+.PHONY : trace/trace_id_filter.cc.i
 
-ecc_sign.s: ecc_sign.cc.s
-.PHONY : ecc_sign.s
+trace/trace_id_filter.s: trace/trace_id_filter.cc.s
+.PHONY : trace/trace_id_filter.s
 
 # target to generate assembly for a file
-ecc_sign.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/trpc_server_tpl_common.dir/build.make CMakeFiles/trpc_server_tpl_common.dir/ecc_sign.cc.s
-.PHONY : ecc_sign.cc.s
+trace/trace_id_filter.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trpc_server_tpl_common.dir/build.make CMakeFiles/trpc_server_tpl_common.dir/trace/trace_id_filter.cc.s
+.PHONY : trace/trace_id_filter.cc.s
 
-server_post_recv_msg_filter.o: server_post_recv_msg_filter.cc.o
-.PHONY : server_post_recv_msg_filter.o
+trace/trace_id_formatter.o: trace/trace_id_formatter.cc.o
+.PHONY : trace/trace_id_formatter.o
 
 # target to build an object file
-server_post_recv_msg_filter.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/trpc_server_tpl_common.dir/build.make CMakeFiles/trpc_server_tpl_common.dir/server_post_recv_msg_filter.cc.o
-.PHONY : server_post_recv_msg_filter.cc.o
+trace/trace_id_formatter.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trpc_server_tpl_common.dir/build.make CMakeFiles/trpc_server_tpl_common.dir/trace/trace_id_formatter.cc.o
+.PHONY : trace/trace_id_formatter.cc.o
 
-server_post_recv_msg_filter.i: server_post_recv_msg_filter.cc.i
-.PHONY : server_post_recv_msg_filter.i
-
-# target to preprocess a source file
-server_post_recv_msg_filter.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/trpc_server_tpl_common.dir/build.make CMakeFiles/trpc_server_tpl_common.dir/server_post_recv_msg_filter.cc.i
-.PHONY : server_post_recv_msg_filter.cc.i
-
-server_post_recv_msg_filter.s: server_post_recv_msg_filter.cc.s
-.PHONY : server_post_recv_msg_filter.s
-
-# target to generate assembly for a file
-server_post_recv_msg_filter.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/trpc_server_tpl_common.dir/build.make CMakeFiles/trpc_server_tpl_common.dir/server_post_recv_msg_filter.cc.s
-.PHONY : server_post_recv_msg_filter.cc.s
-
-trace_id_formatter.o: trace_id_formatter.cc.o
-.PHONY : trace_id_formatter.o
-
-# target to build an object file
-trace_id_formatter.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/trpc_server_tpl_common.dir/build.make CMakeFiles/trpc_server_tpl_common.dir/trace_id_formatter.cc.o
-.PHONY : trace_id_formatter.cc.o
-
-trace_id_formatter.i: trace_id_formatter.cc.i
-.PHONY : trace_id_formatter.i
+trace/trace_id_formatter.i: trace/trace_id_formatter.cc.i
+.PHONY : trace/trace_id_formatter.i
 
 # target to preprocess a source file
-trace_id_formatter.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/trpc_server_tpl_common.dir/build.make CMakeFiles/trpc_server_tpl_common.dir/trace_id_formatter.cc.i
-.PHONY : trace_id_formatter.cc.i
+trace/trace_id_formatter.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trpc_server_tpl_common.dir/build.make CMakeFiles/trpc_server_tpl_common.dir/trace/trace_id_formatter.cc.i
+.PHONY : trace/trace_id_formatter.cc.i
 
-trace_id_formatter.s: trace_id_formatter.cc.s
-.PHONY : trace_id_formatter.s
+trace/trace_id_formatter.s: trace/trace_id_formatter.cc.s
+.PHONY : trace/trace_id_formatter.s
 
 # target to generate assembly for a file
-trace_id_formatter.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/trpc_server_tpl_common.dir/build.make CMakeFiles/trpc_server_tpl_common.dir/trace_id_formatter.cc.s
-.PHONY : trace_id_formatter.cc.s
+trace/trace_id_formatter.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trpc_server_tpl_common.dir/build.make CMakeFiles/trpc_server_tpl_common.dir/trace/trace_id_formatter.cc.s
+.PHONY : trace/trace_id_formatter.cc.s
 
 # Help Target
 help:
@@ -237,18 +213,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... trpc_server_tpl_common"
-	@echo "... aes.o"
-	@echo "... aes.i"
-	@echo "... aes.s"
-	@echo "... ecc_sign.o"
-	@echo "... ecc_sign.i"
-	@echo "... ecc_sign.s"
-	@echo "... server_post_recv_msg_filter.o"
-	@echo "... server_post_recv_msg_filter.i"
-	@echo "... server_post_recv_msg_filter.s"
-	@echo "... trace_id_formatter.o"
-	@echo "... trace_id_formatter.i"
-	@echo "... trace_id_formatter.s"
+	@echo "... security/ecc_sign.o"
+	@echo "... security/ecc_sign.i"
+	@echo "... security/ecc_sign.s"
+	@echo "... trace/trace_id_filter.o"
+	@echo "... trace/trace_id_filter.i"
+	@echo "... trace/trace_id_filter.s"
+	@echo "... trace/trace_id_formatter.o"
+	@echo "... trace/trace_id_formatter.i"
+	@echo "... trace/trace_id_formatter.s"
 .PHONY : help
 
 

@@ -1,5 +1,7 @@
 // copyright skylanwei 2024-05-19
-#pragma once
+
+#ifndef TRPC_COMMON_SECURITY_AES_H_
+#define TRPC_COMMON_SECURITY_AES_H_
 
 #include <string>
 
@@ -30,3 +32,5 @@ private:
 
 }
 }
+
+#endif // TRPC_COMMON_SECURITY_AES_H_

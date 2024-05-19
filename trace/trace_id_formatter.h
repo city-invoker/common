@@ -1,6 +1,7 @@
 // copyright skylanwei 2023-11-18
 
-#pragma once
+#ifndef TRPC_COMMON_TRACE_TRACE_ID_FORMATTER_H_
+#define TRPC_COMMON_TRACE_TRACE_ID_FORMATTER_H_
 
 #include "spdlog/pattern_formatter.h"
 
@@ -16,3 +17,6 @@ public:
 
 }
 }
+
+
+#endif // TRPC_COMMON_TRACE_TRACE_ID_FORMATTER_H_

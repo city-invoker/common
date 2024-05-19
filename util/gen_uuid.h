@@ -1,6 +1,7 @@
 // copyright skylanwei 2024-04-23
 
-#pragma once
+#ifndef TRPC_COMMON_UTIL_GEN_UUID_H_
+#define TRPC_COMMON_UTIL_GEN_UUID_H_
 
 #include <uuid/uuid.h>
 #include <string>
@@ -32,3 +33,5 @@ public:
 
 }
 }
+
+#endif // TRPC_COMMON_UTIL_GEN_UUID_H_

@@ -1,5 +1,7 @@
 // copyright skylanwei 2024-04-22
-#pragma once
+
+#ifndef TRPC_COMMON_SECURITY_ECC_SIGN_H_
+#define TRPC_COMMON_SECURITY_ECC_SIGN_H_
 
 #include <openssl/evp.h>
 #include <string>
@@ -28,3 +30,4 @@ public:
 }
 }
 
+#endif // TRPC_COMMON_SECURITY_ECC_SIGN_H_

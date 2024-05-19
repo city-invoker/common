@@ -5,6 +5,7 @@
 #include "trpc/server/server_context.h"
 #include "trpc/filter/server_filter_base.h"
 #include "trpc/filter/filter_point.h"
+#include "util/filter_id.h"
 
 namespace trpc {
 namespace app {
@@ -13,7 +14,7 @@ void TraceIdFormatter::format(const spdlog::details::log_msg &, const std::tm &,
 
   auto context = ::trpc::GetLocalServerContext();
   if (context != nullptr) {
-    uint32_t filter_id = static_cast<uint32_t>(::trpc::FilterPoint::SERVER_POST_RECV_MSG);
+    uint32_t filter_id = static_cast<uint32_t>(FilterId::TRACE_ID_FILTER);
     std::string* uuid = context->GetFilterData<std::string>(filter_id);
     if (!uuid->empty()) {
       spdlog::details::fmt_helper::append_string_view(*uuid, dest);
@@ -23,7 +24,7 @@ void TraceIdFormatter::format(const spdlog::details::log_msg &, const std::tm &,
 
 std::unique_ptr<spdlog::custom_flag_formatter> TraceIdFormatter::clone() const {
 
-    return spdlog::details::make_unique<TraceIdFormatter>();
+  return spdlog::details::make_unique<TraceIdFormatter>();
 }
 
 }

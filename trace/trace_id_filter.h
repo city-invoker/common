@@ -1,13 +1,14 @@
 // copyright skylanwei 2024-04-22
 
-#pragma once
+#ifndef TRPC_COMMON_TRACE_TRACE_ID_FILTER_H_
+#define TRPC_COMMON_TRACE_TRACE_ID_FILTER_H_
 
 #include "trpc/filter/server_filter_base.h"
 
 namespace trpc {
 namespace app {
 
-class ServerPostRecvMsgFilter : public ::trpc::MessageServerFilter {
+class TraceIdFilter : public ::trpc::MessageServerFilter {
 
 public:
     std::string Name() override { return "server_post_recv_msg_filter"; }
@@ -26,3 +27,5 @@ public:
 
 }
 }
+
+#endif // TRPC_COMMON_TRACE_TRACE_ID_FILTER_H_

@@ -4,7 +4,7 @@
 #include "trpc/server/server_context.h"
 
 namespace trpc {
-  namespace sample {
+namespace app {
 
 void ServerPostRecvMsgFilter::operator()(::trpc::FilterStatus& status,
                                          ::trpc::FilterPoint point, 

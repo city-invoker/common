@@ -5,7 +5,7 @@
 #include "spdlog/pattern_formatter.h"
 
 namespace trpc {
-namespace sample {
+namespace app {
 
 class TraceIdFormatter : public spdlog::custom_flag_formatter {
 public:

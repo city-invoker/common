@@ -5,7 +5,7 @@
 #include "trpc/filter/server_filter_base.h"
 
 namespace trpc {
-namespace sample {
+namespace app {
 
 class ServerPostRecvMsgFilter : public ::trpc::MessageServerFilter {
 

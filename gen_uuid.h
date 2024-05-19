@@ -6,7 +6,7 @@
 #include <string>
 
 namespace trpc {
-namespace sample {
+namespace app {
 
 class UUID {
 

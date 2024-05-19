@@ -8,8 +8,8 @@
 namespace trpc {
 namespace app { 
 
-
-void EccSign::Init() {
+EccSign::EccSign() {
+  //TODO:load key from config
   private_key_pem = R"(
         -----BEGIN EC PRIVATE KEY-----
         MHcCAQEEIMiI8EHSGbKKv9fKG/Fe+qdAHe+E9vbGlbxkWDkatjG0oAoGCCqGSM49
@@ -26,6 +26,13 @@ void EccSign::Init() {
   )";
   LoadPublicKey(public_key_pem);
   return;
+}
+
+EccSign::EccSign(const std::string&& private_key_pem, const std::string& public_key_pem): private_key_pem(private_key_pem), public_key_pem(public_key_pem) {
+
+  LoadPrivateKey(private_key_pem);
+  LoadPublicKey(public_key_pem);
+
 }
 
 void EccSign::LoadPrivateKey(const std::string& private_key_pem) {

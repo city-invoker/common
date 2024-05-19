@@ -7,8 +7,7 @@
 #include "trpc/filter/filter_point.h"
 
 namespace trpc {
-namespace sample {
-
+namespace app {
 
 void TraceIdFormatter::format(const spdlog::details::log_msg &, const std::tm &, spdlog::memory_buf_t &dest) {
 

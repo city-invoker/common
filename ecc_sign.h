@@ -9,17 +9,19 @@ namespace trpc {
 
 class EccSign {
 private:
-  static std::string private_key_pem;
-  static std::string public_key_pem;
-  static EVP_PKEY* private_key;
-  static EVP_PKEY* public_key;
+  std::string private_key_pem;
+  std::string public_key_pem;
+  EVP_PKEY* private_key;
+  EVP_PKEY* public_key;
 
 public:
-  static void Init();
-  static void LoadPrivateKey(const std::string& private_key_pem);
-  static void LoadPublicKey(const std::string& public_key_pem);
-  static std::string Signature(const std::string& message);
-  static bool Verify(const std::string& message, const std::string& sign);
+  EccSign();
+  EccSign(const std::string&& private_key_pem, const std::string& public_key_pem);
+  
+  void LoadPrivateKey(const std::string& private_key_pem);
+  void LoadPublicKey(const std::string& public_key_pem);
+  std::string Signature(const std::string& message);
+  bool Verify(const std::string& message, const std::string& sign);
 };
 
 

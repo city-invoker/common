@@ -1,7 +1,7 @@
 #include "trace_id_filter.h"
 
-#include "util/gen_uuid.h"
-#include "util/filter_id.h"
+#include "../util/gen_uuid.h"
+#include "../util/filter_id.h"
 #include "trpc/server/server_context.h"
 
 namespace trpc {

@@ -23,19 +23,19 @@ using tropical_months = std::chrono::duration<int64_t, std::ratio<2629744>>;
 using tropical_days = std::chrono::duration<int64_t, std::ratio<24 * 60 * 60>>;
 using tropical_hours = std::chrono::duration<int64_t, std::ratio<60 * 60 * 2>>; //一个时辰等于2h
 
-std::chrono::system_clock::time_point DateStrToTimePoint(std::string& datetime) {
+std::chrono::system_clock::time_point DateStrToTimePoint(const std::string& datetime) {
   std::tm tm = {};
   std::istringstream ss(datetime);
   ss >> std::get_time(&tm, "%Y-%m-%d %H:%M:%S");
-  st_tm.tm_isdst = -1;
-  std::time_t tt = std::mktime(&st_tm);
+  tm.tm_isdst = -1;
+  std::time_t tt = std::mktime(&tm);
   std::chrono::system_clock::time_point tp = std::chrono::system_clock::from_time_t(tt);
   return tp;
 }
 
 class AnchorPoint : public Singleton<AnchorPoint, CreateUsingNew, DefaultLifetime> {
 
-private:
+public:
   AnchorPoint() {
     //甲子年丙寅月甲寅日立春起始点
     std::string year_month_anchor_str = "1924-02-05 09:49:00";
@@ -46,7 +46,6 @@ private:
     day_hour = DateStrToTimePoint(day_hour_anchor_str);
   }
 
-public:
   std::chrono::system_clock::time_point YearMonth() {
     return year_month;
   }
@@ -69,6 +68,7 @@ public:
   std::string GetName() {
     return name;
   }
+
 private:
   uint32_t idx_g; //index of tg in range 0-9
   uint32_t idx_z; //index of dz in range 0-11 
@@ -89,8 +89,8 @@ public:
     uint32_t elapse_years = std::chrono::duration_cast<tropical_years>(ym_dur).count();
     uint32_t elapse_months = std::chrono::duration_cast<tropical_months>(ym_dur).count();
 
-    gz_year = GZ(y_idx % 10, y_idx % 12); //for anchor point's offset idx is g=0,z=0
-    gz_month = GZ(m_idx % 10 + 2, m_idx % 12 + 2); //for anchor point's offset idx is g=2,z=2
+    gz_year = GZ(elapse_years % 10, elapse_years % 12); //for anchor point's offset idx is g=0,z=0
+    gz_month = GZ(elapse_months % 10 + 2, elapse_months % 12 + 2); //for anchor point's offset idx is g=2,z=2
 
     //for day and hour, this algorithm is absolutely right,
     //coz there's no relation between tropical day and month,

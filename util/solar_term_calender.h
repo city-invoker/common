@@ -66,6 +66,9 @@ public:
     name = solar_tg[idx_g] + solar_dz[idx_z];
   }
 
+  std::string GetName() {
+    return name;
+  }
 private:
   uint32_t idx_g; //index of tg in range 0-9
   uint32_t idx_z; //index of dz in range 0-11 
@@ -98,8 +101,28 @@ public:
     uint32_t elapse_hours = std::chrono::duration_cast<tropical_hours>(dh_dur).count();
     gz_day = GZ(elapse_days % 10, elapse_days % 12 + 2); //for anchor point's offset idx is g=0,z=2
     gz_hour = GZ(elapse_hours % 10, elapse_hours % 12); //for anchor point's offset idx is g=0,z=0
-
   }
+
+  std::string GetDateTime() {
+    return datetime;
+  }
+
+  GZ GZYear() {
+    return gz_year;
+  }
+
+  GZ GZMonth() {
+    return gz_month;
+  }
+
+  GZ GZDay() {
+    return gz_day;
+  }
+
+  GZ GZHour() {
+    return gz_hour;
+  }
+
 
 private:
   std::string datetime;

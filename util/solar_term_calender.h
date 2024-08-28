@@ -13,7 +13,7 @@ static const uint32_t kGzLen = 60;
 static const std::vector<std::string> kTg = {"甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸"}; 
 static const std::vector<std::string> kDz = {"子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"}; 
 
-static const std::vector<std::string> solar_terms = {"立春","雨水","惊蛰","春分","清明","谷雨","立夏","小满","芒种","夏至","小暑","大暑","立秋","处暑","白露","秋分","寒露","霜降","立冬","小雪","大雪","冬至",  "小寒","大寒"};
+static const std::vector<std::string> kSt = {"立春","雨水","惊蛰","春分","清明","谷雨","立夏","小满","芒种","夏至","小暑","大暑","立秋","处暑","白露","秋分","寒露","霜降","立冬","小雪","大雪","冬至",  "小寒","大寒"};
 
 //a tropical year is 365 days 5 hours 48 minutes 46 seconds, equal to 31556926 seconds,
 //we use 31556928(two more seconds) to make it divisible by 12 to define the month's
@@ -75,7 +75,7 @@ public:
     return idx % kTg.size();
   }
 
-  uint32_t GetIdxrZ() {
+  uint32_t GetIdxZ() {
     return idx % kDz.size();
   }
 
@@ -109,6 +109,10 @@ public:
     uint32_t elapse_years = std::chrono::duration_cast<tropical_years>(ym_dur).count();
     uint32_t elapse_months = std::chrono::duration_cast<tropical_months>(ym_dur).count();
 
+    uint32_t elapse_st = elapse_months * 2;
+    st_idx = elapse_st % kSt.size();
+    st_name = kSt[st_idx];
+
     gz_year = GZ(elapse_years % kGzLen);
     gz_month = GZ((elapse_months + 2) % kGzLen); //丙寅's offset is 2
 
@@ -123,8 +127,20 @@ public:
     gz_hour = GZ(elapse_hours % kGzLen);
   }
 
+  bool CheckValid(const std::string& finger_print) {
+    return true;
+  }
+
   std::string GetDateTime() {
     return datetime;
+  }
+
+  uint32_t GetStIdx() {
+    return st_idx;
+  }
+
+  std::string GetStName() {
+    return st_name;
   }
 
   GZ GetYear() {
@@ -163,7 +179,9 @@ public:
 
   std::string dump() {
     std::stringstream ss;
-    ss << datetime << ":["
+    ss << datetime
+       << ":[" << st_idx << ":" << st_name << "]"
+       << "["
        << gz_year.dump() << ","
        << gz_month.dump() << ","
        << gz_day.dump() << ","
@@ -173,6 +191,8 @@ public:
 
 private:
   std::string datetime;
+  uint32_t st_idx;
+  std::string st_name;
   GZ gz_year;
   GZ gz_month;
   GZ gz_day;

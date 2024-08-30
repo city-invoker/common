@@ -3,17 +3,11 @@
 #ifndef TRPC_COMMON_UTIL_SOLAR_TERM_CALENDER_H_
 #define TRPC_COMMON_UTIL_SOLAR_TERM_CALENDER_H_
 
+#include "common/util/const.h"
 #include "trpc/util/singleton.h"
 
 namespace trpc {
 namespace app {
-
-
-static const uint32_t kGzLen = 60;
-static const std::vector<std::string> kTg = {"甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸"}; 
-static const std::vector<std::string> kDz = {"子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"}; 
-
-static const std::vector<std::string> kSt = {"立春","雨水","惊蛰","春分","清明","谷雨","立夏","小满","芒种","夏至","小暑","大暑","立秋","处暑","白露","秋分","寒露","霜降","立冬","小雪","大雪","冬至",  "小寒","大寒"};
 
 //a tropical year is 365 days 5 hours 48 minutes 46 seconds, equal to 31556926 seconds,
 //we use 31556928(two more seconds) to make it divisible by 12 to define the month's
@@ -110,8 +104,8 @@ public:
     uint32_t elapse_months = std::chrono::duration_cast<tropical_months>(ym_dur).count();
 
     uint32_t elapse_st = elapse_months * 2;
-    st_idx = elapse_st % kSt.size();
-    st_name = kSt[st_idx];
+    st_idx = elapse_st % kSolarTerm.size();
+    st_name = kSolarTerm[st_idx];
 
     gz_year = GZ(elapse_years % kGzLen);
     gz_month = GZ((elapse_months + 2) % kGzLen); //丙寅's offset is 2

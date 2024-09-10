@@ -13,6 +13,11 @@ static const std::vector<std::string> kSolarTerm = {"立春","雨水","惊蛰","
 
 static const std::vector<std::string> kMgXnames = {"破", "难", "犯", "贵", "寿", "艺", "刃", "孤", "驿", "福", "文", "如"};
 
-static const std::vector<std::string> kSigGod = {"比肩", "劫财", "食神", "伤官", "偏财", "正财", "偏官", "正官", "偏印", "正印"}; 
+static const std::vector<std::string> kSixGod = {"比肩", "劫财", "食神", "伤官", "偏财", "正财", "偏官", "正官", "偏印", "正印"}; 
+
+//for dz six god's shift index, minus means switch each 2
+static const std::vector<std::vector<int32_t> > kZSixGodIndex = {
+ {9}, {9,5,7}, {-3,-1,5}, {-1}, {-1,-5,9}, {-5,-3,-7}, {3,5}, {1,5,3}, {-5,-7,-9}, {7}, {7,-5,3}, {-9,-1}
+};
 
 #endif // TRPC_COMMON_UTIL_CONST_H_

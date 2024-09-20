@@ -3,6 +3,8 @@
 #ifndef TRPC_COMMON_UTIL_SOLAR_TERM_CALENDER_H_
 #define TRPC_COMMON_UTIL_SOLAR_TERM_CALENDER_H_
 
+#include <iomanip>
+
 #include "common/util/const.h"
 #include "trpc/util/singleton.h"
 
@@ -18,15 +20,6 @@ using tropical_months = std::chrono::duration<int64_t, std::ratio<2629744>>;
 using tropical_days = std::chrono::duration<int64_t, std::ratio<24 * 60 * 60>>;
 using tropical_hours = std::chrono::duration<int64_t, std::ratio<60 * 60 * 2>>; //一个时辰等于2h
 
-std::chrono::system_clock::time_point DateStrToTimePoint(const std::string& datetime) {
-  std::tm tm = {};
-  std::istringstream ss(datetime);
-  ss >> std::get_time(&tm, "%Y-%m-%d %H:%M:%S");
-  tm.tm_isdst = -1;
-  std::time_t tt = std::mktime(&tm);
-  std::chrono::system_clock::time_point tp = std::chrono::system_clock::from_time_t(tt);
-  return tp;
-}
 
 class AnchorPoint : public Singleton<AnchorPoint, CreateUsingNew, DefaultLifetime> {
 
@@ -39,6 +32,16 @@ public:
     //甲子年丙寅月甲寅日甲子时起始点
     std::string day_hour_anchor_str = "1924-02-04 23:00:00";
     day_hour = DateStrToTimePoint(day_hour_anchor_str);
+  }
+
+  static std::chrono::system_clock::time_point DateStrToTimePoint(const std::string& datetime) {
+    std::tm tm = {};
+    std::istringstream ss(datetime);
+    ss >> std::get_time(&tm, "%Y-%m-%d %H:%M:%S");
+    tm.tm_isdst = -1;
+    std::time_t tt = std::mktime(&tm);
+    std::chrono::system_clock::time_point tp = std::chrono::system_clock::from_time_t(tt);
+    return tp;
   }
 
   std::chrono::system_clock::time_point YearMonth() {
@@ -98,7 +101,7 @@ public:
     //into 12 months to make every solar term is close to the real tropical time,
     //diviations within 10 mins.
 
-    std::chrono::system_clock::time_point tp = DateStrToTimePoint(datetime);
+    std::chrono::system_clock::time_point tp = AnchorPoint::DateStrToTimePoint(datetime);
     auto ym_dur = tp - AnchorPoint::GetInstance()->YearMonth();
     uint32_t elapse_years = std::chrono::duration_cast<tropical_years>(ym_dur).count();
     uint32_t elapse_months = std::chrono::duration_cast<tropical_months>(ym_dur).count();
@@ -121,9 +124,8 @@ public:
     gz_hour = GZ(elapse_hours % kGzLen);
   }
 
-  bool CheckValid(const std::string& finger_print) {
-    return true;
-  }
+  uint32_t GetCurAge();
+  uint32_t GetCurYearShiftStep();
 
   std::string GetDateTime() {
     return datetime;
